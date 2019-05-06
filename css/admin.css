@@ -95,6 +95,7 @@ main.active {
 	display: block;
 	color: rgb(133, 135, 139);
 	text-decoration: none;
+	text-transform: uppercase;
 	border-bottom: 1px solid black;
 	padding-left: 20px;
 }
