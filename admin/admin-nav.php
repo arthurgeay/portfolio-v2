@@ -72,6 +72,7 @@
 
                 <div class="container">
                 <h1>Informations du menu de navigation</h1>
+                <hr>
 
                 <form>
                     <input type="file" placeholder="test" id="file" />

@@ -7,6 +7,15 @@ h1 {
 	text-align: center;
 }
 
+hr
+{
+	height: 1px;
+	color: black;
+	background-color: black;
+	border: none;
+	margin-bottom: 35px;
+}
+
 main
 {
 	box-sizing: border-box;
@@ -167,17 +176,98 @@ form {
 }
 
 
+/* Parcours */
+
+.parcours h3{
+	text-align: center;
+}
+.parcours {
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+.parcours-content {
+	background: white;
+	padding: 25px;
+	flex-grow: 1;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.parcours-content h2 {
+	text-align: center;
+}
+
+.parcours + h2 {
+	margin-top: 35px;
+}
+
+.actions .btn {
+	display: block;
+	margin-left: 15px;
+	margin-bottom: 15px;
+}
+
+.actions {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.btn-admin {
+	display: block;
+	padding: 15px 25px;
+	margin: 35px 0;
+	border: none;
+	color: white;
+	text-transform: uppercase;
+	text-decoration: none!important;
+	cursor: pointer;
+	font-weight: bolder;
+	text-align: center;
+	background: rgb(190, 91, 87);
+	transition: background 0.6s;
+}
+
+.btn-admin:hover {
+	background: rgb(188, 114, 111);
+	color: white;
+}
+
+
+
+
+@media screen and (max-width: 968px) {
+
+	.parcours {
+		flex-wrap: wrap;
+	}
+
+	.actions {
+		flex-direction: row;
+	}
+
+	.actions .btn {
+		margin-top: 15px;
+	}
+}
+
 @media screen and (max-width: 768px) {
+
+	/* Formulaire */
 	#form-login {
 		width: 100%;
 	}
 
+	/* Sidebar */
 	#sidebar {
 		margin-left: -250px;
 	}
 	#sidebar.active {
 		margin-left: 0;
 	}
+
+	/* Bouton d'affichage sidebar */
 	#sidebarCollapse span:first-of-type,
 	#sidebarCollapse span:nth-of-type(2),
 	#sidebarCollapse span:last-of-type {

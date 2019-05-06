@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/admin.css" />
-    <title>Administration - A propos</title>
+    <title>Administration - Parcours</title>
 </head>
 <body>
 <div class="wrapper">
@@ -71,43 +71,36 @@
         </nav>
 
         <div class="container">
-            <h1>Administration de la section présentation</h1>
+            <h1>Administration de la section parcours</h1>
             <hr>
-
-            <form>
-                <div class="row">
-                    <div class="col-md-6">
-                        <input type="text" placeholder="Nom complet" />
+            <a href="#" class="btn btn-admin">Ajouter une expérience ou une formation</a>
+            <h2>Expériences professionnelles</h2>
+                <div class="parcours">
+                    <div class="parcours-content">
+                        <h3>Développeur web @ ENVOLiiS</h3>
+                        <p><strong>Les missions :</strong></p>
+                        <ul>
+                            <li>Développement d'un portail Power BI</li>
+                            <li>Développement d'un outil d'import de contrat</li>
+                        </ul>
                     </div>
-                    <div class="col-md-6">
-                        <input type="date" placeholder="Date de naissance" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <input type="text" placeholder="Ville" />
-                    </div>
-                    <div class="col-md-6">
-                        <input type="email" placeholder="Adresse e-mail" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <input type="tel" placeholder="Téléphone" />
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" placeholder="Hobbies" />
+                    <div class="actions">
+                        <a href="#" class="btn btn-primary btn-lg">Modifier</a>
+                        <a href="#" class="btn btn-danger btn-lg">Supprimer</a>
                     </div>
                 </div>
 
-                <input type="text" placeholder="Titre / Poste occupé" />
-
-                <textarea rows="10">Brève description</textarea>
-
-                <input type="file" id="file" />
-                <label for="file" id="label-file">Envoyez un nouveau CV (.pdf)</label>
-                <input type="submit" />
-            </form>
+            <h2>Formations</h2>
+            <div class="parcours">
+                <div class="parcours-content">
+                    <h3>Bachelor Informatique et Systèmes d'Information @ Ynov Informatique</h3>
+                    <p>La formation d’Ynov Informatique prépare au titre d’Expert Informatique <br />et Systèmes d’Information, enregistré au Répertoire National de la Certification Professionnelle (RNCP) au niveau I.)</p>
+                </div>
+                <div class="actions">
+                    <a href="#" class="btn btn-primary btn-lg">Modifier</a>
+                    <a href="#" class="btn btn-danger btn-lg">Supprimer</a>
+                </div>
+            </div>
         </div>
 
     </main>
@@ -120,8 +113,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
 <script src="../js/sidebar-menu.js"></script>
-<script src="../js/input-file.js"></script>
-<script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=mzsxobhcy2bmaw0f297tdggvpn0hitc49u401ssum981ee5q"></script>
-<script src="../js/tinymce.js"></script>
 </body>
 </html>
