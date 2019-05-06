@@ -49,7 +49,7 @@ section
 	margin: 45px 0;
 }
 
-form input, form textarea
+form input, form textarea, form select
 {
 	display: block;
 	box-sizing: border-box;
@@ -64,6 +64,18 @@ form input, form textarea
 form input:focus, form textarea:focus
 {
 	outline: none;
+	border: 2px solid rgba(208, 82, 85, 0.9);
+}
+
+select {
+	height: 50px;
+	background: white;
+	border-radius: 0;
+	outline: 1px inset white;
+	outline-offset:-1px;
+}
+
+select:focus {
 	border: 2px solid rgba(208, 82, 85, 0.9);
 }
 
