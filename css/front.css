@@ -2,6 +2,17 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+	box-sizing: border-box;
+	padding: 50px 50px;
+	background: rgb(239, 239, 239);
+	font-family: 'Open Sans', sans-serif;
+	margin: auto;
+	width: 100%;
+	display: flex;
+}
+
+
 /* Header */
 
 header
@@ -71,6 +82,20 @@ nav .fas
 	top: 20px;
 	left: 25px;
 }
+
+
+button
+{
+	padding: 15px 25px;
+	margin-top: 15px;
+	border: none;
+	color: white;
+	text-transform: uppercase;
+	cursor: pointer;
+	font-weight: bolder;
+	text-align: center;
+}
+
 
 /* Social icons */
 
