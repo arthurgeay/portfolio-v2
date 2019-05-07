@@ -176,29 +176,29 @@ form {
 }
 
 
-/* Parcours */
+/* Parcours  & skills */
 
-.parcours h3{
+.skills h3{
 	text-align: center;
 }
-.parcours {
+.parcours, .skills {
 	display: flex;
 	justify-content: center;
 	margin-top: 40px;
 }
 
-.parcours-content {
+.parcours-content, .skills-content {
 	background: white;
 	padding: 25px;
 	flex-grow: 1;
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.parcours-content h2 {
+.parcours-content h2, .skills-content h2 {
 	text-align: center;
 }
 
-.parcours + h2 {
+.parcours + h2, .skills + h2 {
 	margin-top: 35px;
 }
 
@@ -234,20 +234,28 @@ form {
 	color: white;
 }
 
+/*Skills */
+img {
+	display: block;
+	width: 200px;
+	margin: auto;
+}
 
 
 
 @media screen and (max-width: 968px) {
 
+	/* Parcours */
+
 	.parcours {
 		flex-wrap: wrap;
 	}
 
-	.actions {
+	.parcours .actions {
 		flex-direction: row;
 	}
 
-	.actions .btn {
+	.parcours .actions .btn {
 		margin-top: 15px;
 	}
 }
