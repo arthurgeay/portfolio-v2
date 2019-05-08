@@ -50,6 +50,6 @@ HTML & CSS | Javascript | jQuery | PHP | SQL
  1. Se rendre à l'adresse : localhost/portfolio-v2/admin
  2. Cliquer sur le lien "Première connexion" puis rentrer l'identifiant et le mot de passe de connexion
 
-Vous pouvez désormais  après avoir réalisés ces quelques étapes, modifier les différentes sections du site et construire votre portfolio.
+Vous pouvez désormais  après avoir réalisé ces quelques étapes, modifier les différentes sections du site et construire votre portfolio.
 
 
