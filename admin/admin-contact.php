@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/admin.css" />
-    <title>Administration - Ajouter un projet</title>
+    <title>Administration - Contact</title>
 </head>
 <body>
 <div class="wrapper">
@@ -71,21 +71,10 @@
         </nav>
 
         <div class="container">
-            <h1>Ajouter un projet</h1>
+            <h1>Administration section contact</h1>
             <hr>
             <form>
-                <input type="file" id="file" />
-                <label for="file" id="label-file">Choisissez une capture d'écran (.png)</label>
-                <input type="text" placeholder="Texte alternatif pour l'image" />
-                <textarea>Description</textarea>
-                <select id="tech-select" multiple>
-                    <option disabled selected>Selectionner une technologie...</option>
-                    <option>HTML & CSS</option>
-                    <option>Framework Silex</option>
-                </select>
-                <input type="text" placeholder="Ajouter une technologie" />
-                <input type="text" placeholder="URL du projet" />
-
+                <textarea rows="8">Description</textarea>
                 <input type="submit" />
             </form>
         </div>
