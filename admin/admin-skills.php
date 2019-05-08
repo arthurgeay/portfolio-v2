@@ -18,25 +18,25 @@
 
         <ul class="list-unstyled">
             <li class="active">
-                <a href="#">Menu de navigation</a>
+                <a href="admin-nav.php">Menu de navigation</a>
             </li>
             <li>
-                <a href="#">A propos</a>
+                <a href="admin-about.php">A propos</a>
             </li>
             <li>
-                <a href="#">Parcours</a>
+                <a href="admin-experience.php">Parcours</a>
             </li>
             <li>
-                <a href="#">Compétences</a>
+                <a href="admin-skills.php">Compétences</a>
             </li>
             <li>
-                <a href="#">Projets</a>
+                <a href="admin-project.php">Projets</a>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="admin-contact.php">Contact</a>
             </li>
             <li>
-                <a href="#">Messagerie</a>
+                <a href="admin-message.php">Messagerie</a>
             </li>
         </ul>
     </nav>
@@ -73,7 +73,7 @@
         <div class="container">
             <h1>Administration de la section compétence</h1>
             <hr>
-            <a href="#" class="btn btn-admin">Ajouter une compétence</a>
+            <a href="admin-edit-skills.php" class="btn btn-admin">Ajouter une compétence</a>
             <h2>Mes compétences</h2>
 
             <div class="skills">

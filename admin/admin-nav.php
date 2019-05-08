@@ -18,25 +18,25 @@
 
                 <ul class="list-unstyled">
                     <li class="active">
-                        <a href="#">Menu de navigation</a>
+                        <a href="admin-nav.php">Menu de navigation</a>
                     </li>
                     <li>
-                        <a href="#">A propos</a>
+                        <a href="admin-about.php">A propos</a>
                     </li>
                     <li>
-                        <a href="#">Parcours</a>
+                        <a href="admin-experience.php">Parcours</a>
                     </li>
                     <li>
-                        <a href="#">Compétences</a>
+                        <a href="admin-skills.php">Compétences</a>
                     </li>
                     <li>
-                        <a href="#">Projets</a>
+                        <a href="admin-project.php">Projets</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="admin-contact.php">Contact</a>
                     </li>
                     <li>
-                        <a href="#">Messagerie</a>
+                        <a href="admin-message.php">Messagerie</a>
                     </li>
                 </ul>
             </nav>
@@ -75,8 +75,8 @@
                 <hr>
 
                 <form>
-                    <input type="file" placeholder="test" id="file" />
-                    <label for="file">Choisissez une image...</label>
+                    <input type="file" id="file" />
+                    <label for="file" id="label-file">Choisissez une image...</label>
                     <input type="text" placeholder="Texte alternatif pour l'image" />
                     <input type="text" placeholder="URL de votre compte Twitter" />
                     <input type="text" placeholder="URL de votre compte Linkedin" />
@@ -95,5 +95,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
         <script src="../js/sidebar-menu.js"></script>
+        <script src="../js/input-file.js"></script>
     </body>
 </html>

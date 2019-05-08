@@ -21,22 +21,22 @@
                 <a href="#">Menu de navigation</a>
             </li>
             <li>
-                <a href="#">A propos</a>
+                <a href="admin-about.php">A propos</a>
             </li>
             <li>
-                <a href="#">Parcours</a>
+                <a href="admin-experience.php">Parcours</a>
             </li>
             <li>
-                <a href="#">Compétences</a>
+                <a href="admin-skills.php">Compétences</a>
             </li>
             <li>
-                <a href="#">Projets</a>
+                <a href="admin-project.php">Projets</a>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="admin-contact.php">Contact</a>
             </li>
             <li>
-                <a href="#">Messagerie</a>
+                <a href="admin-message.php">Messagerie</a>
             </li>
         </ul>
     </nav>
