@@ -265,6 +265,12 @@ img {
 }
 
 
+/* Project edit form */
+#tech-select {
+	height: auto;
+}
+
+
 
 
 @media screen and (max-width: 1364px) {
@@ -279,7 +285,7 @@ img {
 	.content-img {
 		margin-top: 15px;
 	}
-	
+
 }
 
 @media screen and (max-width: 968px) {
