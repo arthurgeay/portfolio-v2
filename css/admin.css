@@ -176,29 +176,29 @@ form {
 }
 
 
-/* Parcours  - Skills - Project */
+/* Parcours  - Skills - Project - Message */
 
 .skills h3{
 	text-align: center;
 }
-.parcours, .skills, .project {
+.parcours, .skills, .project, .message {
 	display: flex;
 	justify-content: center;
 	margin-top: 40px;
 }
 
-.parcours-content, .skills-content, .project-content {
+.parcours-content, .skills-content, .project-content, .message-content {
 	background: white;
 	padding: 25px;
 	flex-grow: 1;
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.parcours-content h3, .skills-content h3, .project-content h3 {
+.parcours-content h3, .skills-content h3, .project-content h3, .message-content h3 {
 	text-align: center;
 }
 
-.parcours-content p , .project-content p {
+.parcours-content p , .project-content p, .message-content p {
 	margin-top: 25px;
 }
 
@@ -296,15 +296,15 @@ select {
 
 	/* Parcours & project */
 
-	.parcours, .project {
+	.parcours, .project, .message {
 		flex-wrap: wrap;
 	}
 
-	.parcours .actions, .project .actions {
+	.parcours .actions, .project .actions, .message {
 		flex-direction: row;
 	}
 
-	.parcours .actions .btn, .project .actions .btn {
+	.parcours .actions .btn, .project .actions .btn, .message .actions .btn {
 		margin-top: 15px;
 	}
 
