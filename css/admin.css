@@ -176,29 +176,33 @@ form {
 }
 
 
-/* Parcours  & skills */
+/* Parcours  - Skills - Project */
 
 .skills h3{
 	text-align: center;
 }
-.parcours, .skills {
+.parcours, .skills, .project {
 	display: flex;
 	justify-content: center;
 	margin-top: 40px;
 }
 
-.parcours-content, .skills-content {
+.parcours-content, .skills-content, .project-content {
 	background: white;
 	padding: 25px;
 	flex-grow: 1;
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.parcours-content h2, .skills-content h2 {
+.parcours-content h3, .skills-content h3, .project-content h3 {
 	text-align: center;
 }
 
-.parcours + h2, .skills + h2 {
+.parcours-content p , .project-content p {
+	margin-top: 25px;
+}
+
+.parcours + h2, .skills + h2, .project + h2 {
 	margin-top: 35px;
 }
 
@@ -241,22 +245,62 @@ img {
 	margin: auto;
 }
 
+/* Project */
 
+.project-content {
+	display: flex;
+}
+
+.content-text {
+	width: 75%;
+}
+
+.content-img img {
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+.project-content ul {
+	padding: 0;
+}
+
+
+
+
+@media screen and (max-width: 1364px) {
+	.project-content {
+		flex-direction: column;
+	}
+
+	.content-text {
+		width: 100%;
+	}
+
+	.content-img {
+		margin-top: 15px;
+	}
+	
+}
 
 @media screen and (max-width: 968px) {
 
-	/* Parcours */
+	/* Parcours & project */
 
-	.parcours {
+	.parcours, .project {
 		flex-wrap: wrap;
 	}
 
-	.parcours .actions {
+	.parcours .actions, .project .actions {
 		flex-direction: row;
 	}
 
-	.parcours .actions .btn {
+	.parcours .actions .btn, .project .actions .btn {
 		margin-top: 15px;
+	}
+
+	.project-content h3{
+		font-size: 1.1em;
+		font-weight: bold;
 	}
 }
 
