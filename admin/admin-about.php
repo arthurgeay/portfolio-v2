@@ -85,7 +85,7 @@
                                 <input type="text" placeholder="Nom complet"/>
                             </div>
                             <div class="col-md-6">
-                                <input type="date" placeholder="Date de naissance"/>
+                                <input type="text" id="dateBirth" placeholder="Date de naissance"/>
                             </div>
                         </div>
                         <div class="row">
@@ -134,5 +134,6 @@
         <script src="../js/input-file.js"></script>
         <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=mzsxobhcy2bmaw0f297tdggvpn0hitc49u401ssum981ee5q"></script>
         <script src="../js/tinymce.js"></script>
+        <script src="../js/input-date.js"></script>
     </body>
 </html>
