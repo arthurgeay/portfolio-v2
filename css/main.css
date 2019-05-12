@@ -137,6 +137,20 @@ input[type="file"]:hover + label {
 	background: rgb(188, 114, 111);
 }
 
+/* Errors */
+#errors {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+#errors img {
+	display: block;
+	margin: initial;
+	width: 150px;
+}
+
 
 
 @media screen and (max-width: 980px) {
