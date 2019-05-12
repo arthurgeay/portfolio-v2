@@ -1,3 +1,11 @@
+<?php
+
+    if(isset($_GET['action']) && $_GET['action'] != 'firstConnect') {
+        header('Location: ../errors.php');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,8 +25,11 @@
                     <input type="password" placeholder="Mot de passe" required />
                     <input type="submit" />
                 </form>
+                <a href="connexion.php?action=firstConnect">Première connexion ?</a>
             </section>
 		</main>
+
+
 
 	</body>
 </html>

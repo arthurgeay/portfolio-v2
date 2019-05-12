@@ -51,6 +51,20 @@ main.active {
 	background: white;
 }
 
+/* Errors */
+#errors {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+#errors img {
+	display: block;
+	margin: initial;
+	width: 150px;
+}
+
 
 /* Menu de navigation */
 
