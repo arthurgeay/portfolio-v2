@@ -34,7 +34,69 @@ HTML & CSS | Javascript | jQuery | PHP | SQL
 
 ## Architecture du projet
 
-*A venir*
+L'architecture se décompose ainsi : 
+
+ - Racine du projet : on retrouve le point d'entrée du portfolio (index.php) et le template des erreurs
+ - Répertoire admin** : contient les différentes pages de l'administration
+ - Répertoire CSS : contient le CSS du portfolio
+ - Répertoire JS : contient les différents scripts JS du projet
+ - Répertoire download : contient les éléments téléchargeable 
+ - Répertoire img : contient les images du projets
+ - Répertoire installation : contient le script d'installation de la base de données avec un jeu de données initiales
+
+**L'architecture du projet sera soumise à des modifications après le développement de la partie PHP et de l'intégration du pattern MVC au projet**
+
+    README.md
+    ├── admin
+    │   ├── admin-about.php
+    │   ├── admin-contact.php
+    │   ├── admin-edit-experience.php
+    │   ├── admin-edit-project.php
+    │   ├── admin-edit-skills.php
+    │   ├── admin-experience.php
+    │   ├── admin-message.php
+    │   ├── admin-nav.php
+    │   ├── admin-project.php
+    │   ├── admin-skills.php
+    │   └── connexion.php
+    ├── css
+    │   ├── admin.css
+    │   ├── front.css
+    │   └── main.css
+    ├── download
+    │   └── CV.pdf
+    ├── errors.php
+    ├── img
+    │   ├── error.png
+    │   ├── profile
+    │   │   └── profile.jpeg
+    │   ├── project
+    │   │   ├── carmanager.png
+    │   │   ├── forteroche.jpg
+    │   │   ├── louvre.jpg
+    │   │   ├── moncoutant.jpg
+    │   │   ├── nao.jpg
+    │   │   └── valerie-dauphin.png
+    │   └── skills
+    │       ├── css.png
+    │       ├── git.png
+    │       ├── github.png
+    │       ├── html.png
+    │       ├── javascript.png
+    │       ├── linkedin.png
+    │       ├── php.png
+    │       ├── sql.png
+    │       └── symfony.png
+    ├── index.php
+    ├── installation
+    │   └── portfolio.sql
+    └── js
+        ├── input-date.js
+        ├── input-file.js
+        ├── sidebar-menu.js
+        ├── tinymce.js
+        └── transition.js
+
 
 
 ## Instructions d'installation
