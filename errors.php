@@ -9,7 +9,7 @@
     </head>
     <body>
         <main id="errors">
-            <h1>Erreurs</h1>
+            <h1>Erreur</h1>
             <hr>
             <img src="img/error.png"/>
             <p>Un problème est survenue ! Veuillez réessayer.</p>
