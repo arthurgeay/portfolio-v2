@@ -104,7 +104,7 @@ L'architecture se décompose ainsi :
  1. Cloner le projet `git clone https://github.com/arthurgeay/portfolio-v2.git`
  2. Installer un serveur web permettant d'exécuter du PHP. Le plus simple étant d'installer une plateforme LAMP (Apache, MySQL, PHP) sur sa machine : [WAMP](https://www.clubic.com/telecharger-fiche27009-wampserver.html) (windows) | [MAMP](https://www.mamp.info/en/) (Mac) | Linux (LAMP)
  3. Installer [PostgreSQL](https://www.pgadmin.org/)
- 4. Créer une base de données depuis pgAdmin `CREATE DATABASE lenomdemabase` 
+ 4. Créer une base de données depuis pgAdmin `CREATE DATABASE portfolio` 
  5. Exécuter le script SQL depuis un terminal pour créer les différentes tables nécessaires au bon fonctionnement du projet (`installation/portfolio.sql`) `psql -U votreuser nomdelabase < portfolio.sql`
 
 
