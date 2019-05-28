@@ -13,7 +13,7 @@
             <hr>
             <img src="img/error.png"/>
             <p>Un problème est survenue ! Veuillez réessayer.</p>
-            <a href="index.php">Retour à l'accueil</a>
+            <a href="view/frontend/index.php">Retour à l'accueil</a>
         </main>
     </body>
 </html>
