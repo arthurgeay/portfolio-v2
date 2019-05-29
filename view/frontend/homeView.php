@@ -154,8 +154,9 @@
 							<div class="overlay">
                                 <p><?= $project['content_project']; ?></p>
 								<ul>
-									<li>HTML &amp; CSS</li>
-									<li>WordPress</li>
+                                    <?php foreach($project['title_label_type'] as $techno): ?>
+                                        <li><?= $techno; ?></li>
+                                    <?php endforeach; ?>
 								</ul>
 							</div>
 						</a>
@@ -168,11 +169,20 @@
 				<h2>Contact</h2>
 				<hr>
 
-				<form>
-					<input type="text" name="firstname" placeholder="Prénom" required />
-					<input type="email" name="email" placeholder="Adresse e-mail" required />
-					<textarea name="message" rows="10" placeholder="Message" required></textarea>
-					<input type="submit" />
+                <p><?= $contactMessage['content_contact']; ?></p>
+
+                <?php if(isset($_SESSION['error'])): ?>
+                    <p class="error"><?= $_SESSION['error']; ?></p>
+                <?php
+                unset($_SESSION['error']);
+                endif;
+                ?>
+
+				<form method="post">
+					<input type="text" name="firstname" placeholder="Prénom"   />
+					<input type="email" name="email" placeholder="Adresse e-mail"  />
+					<textarea name="message" rows="10" placeholder="Message" ></textarea>
+					<input type="submit" name="contact-form"/>
 				</form>
 			</section>
 		</main>

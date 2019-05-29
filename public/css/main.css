@@ -151,6 +151,13 @@ input[type="file"]:hover + label {
 	width: 150px;
 }
 
+.error {
+	padding: 20px;
+	background-color: #f44336;
+	color: white;
+	margin-bottom: 15px;
+}
+
 
 
 @media screen and (max-width: 980px) {

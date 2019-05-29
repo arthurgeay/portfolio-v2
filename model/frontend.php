@@ -63,15 +63,28 @@ function getSkills() {
 
 function getProjects() {
     $db = dbConnect();
-    $req = $db->query('SELECT * FROM admin.project');
+    $req = $db->query('SELECT p.id_project, p.content_project, p.url_project, p.img_path_project, p.alt_img_project, lt.title_label_type FROM admin.project AS p INNER JOIN admin.project_label_type AS l ON l.id_project = p.id_project LEFT JOIN admin.label_type AS lt ON lt.id_label_type = l.id_label_type');
 
     $result = [];
+    $technos = [];
 
     while($data = $req->fetch(PDO::FETCH_ASSOC)) {
-        $result[] = $data;
+        $technos[$data['id_project']][$data['title_label_type']] = $data['title_label_type'];
+        $result[$data['id_project']] = $data;
+        unset($result[$data['id_project']]['title_label_type']);
+    }
+
+    for($i = 1; $i <= count($result); $i++) {
+        $result[$i]['title_label_type'] = $technos[$i];
     }
 
     return $result;
 }
 
-// SELECT p.id_project, lt.title_label_type FROM admin.project AS p INNER JOIN admin.project_label_type AS l ON l.id_project = p.id_project INNER JOIN admin.label_type AS lt ON lt.id_label_type = l.id_label_type
+function getContentContact() {
+    $db = dbConnect();
+    $req = $db->query('SELECT * FROM admin.contact ORDER BY id_contact DESC');
+
+    return $req->fetch(PDO::FETCH_ASSOC);
+
+}
