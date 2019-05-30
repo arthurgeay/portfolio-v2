@@ -5,10 +5,10 @@ require_once 'db.php';
 function updateMenuInfo($alt, $linkedin, $twitter, $github) {
     $db = dbConnect();
     $req = $db->prepare('UPDATE admin.header_info SET alt_img_header_info = :alt, url_linkedin_header_info = :linkedin, url_twitter_header_info = :twitter, url_github_header_info = :github');
-    $req->bindValue(':alt', $alt);
-    $req->bindValue(':linkedin', $linkedin);
-    $req->bindValue(':twitter', $twitter);
-    $req->bindValue(':github', $github);
+    $req->bindValue(':alt', htmlentities($alt));
+    $req->bindValue(':linkedin', htmlentities($linkedin));
+    $req->bindValue(':twitter', htmlentities($twitter));
+    $req->bindValue(':github', htmlentities($github));
 
     $req->execute();
 }
@@ -99,7 +99,7 @@ function editSkill($id, $alt) {
     $db = dbConnect();
     $req = $db->prepare('UPDATE admin.skills SET alt_img_skills = :alt WHERE id_skills = :id');
     $req->bindValue(':id', $id);
-    $req->bindValue(':alt', $alt);
+    $req->bindValue(':alt', htmlentities($alt));
 
     $req->execute();
 }
@@ -108,6 +108,101 @@ function editSkill($id, $alt) {
 function deleteSkill($id) {
     $db = dbConnect();
     $req = $db->prepare('DELETE FROM admin.skills WHERE id_skills = :id');
+    $req->bindValue(':id', $id);
+
+    $req->execute();
+}
+
+
+function getTechnos() {
+    $db = dbConnect();
+
+    $req = $db->query('SELECT * FROM admin.label_type');
+
+    $result = [];
+
+    while($data = $req->fetch(PDO::FETCH_ASSOC)) {
+        $result[] = $data;
+    }
+
+    return $result;
+}
+
+function addProject($pathScreenImg, $alt, $description, $technos, $url, $newTechno) {
+    $db = dbConnect();
+
+    $req = $db->prepare('INSERT INTO admin.project(img_path_project, alt_img_project, content_project, url_project) VALUES(:img, :alt, :description, :url)');
+    $req->bindValue(':img', $pathScreenImg);
+    $req->bindValue(':alt', htmlentities($alt));
+    $req->bindValue(':description', strip_tags($description));
+    $req->bindValue(':url', htmlentities($url));
+
+    $req->execute();
+    $idProject = $db->lastInsertId();
+
+    if(!empty($newTechno)) {
+        $idNewTechno = addTechno($newTechno);
+        $technos[] = $idNewTechno;
+    }
+
+    addProjectLabelType($idProject, $technos);
+}
+
+function addProjectLabelType($idProject, $technos) {
+    $db = dbConnect();
+
+    foreach($technos as $techno) {
+        $req = $db->prepare('INSERT INTO admin.project_label_type(id_project, id_label_type) VALUES(:project, :label)');
+        $req->bindValue(':project', $idProject);
+        $req->bindValue(':label', htmlentities($techno));
+
+        $req->execute();
+    }
+
+}
+
+function addTechno($title) {
+    $db = dbConnect();
+    $req = $db->prepare('INSERT INTO admin.label_type(title_label_type) VALUES(:label)');
+    $req->bindValue(':label', htmlentities($title));
+
+    $req->execute();
+
+    return $db->lastInsertId();
+}
+
+function getProjectById($id) {
+    $db = dbConnect();
+
+    $req = $db->prepare('SELECT * FROM admin.project WHERE id_project = :id');
+    $req->bindValue(':id', $id);
+
+    $req->execute();
+
+    return $req->fetch(PDO::FETCH_ASSOC);
+}
+
+function editProject($id, $alt, $description, $techno, $url) {
+    $db = dbConnect();
+
+    $req = $db->prepare('UPDATE admin.project SET alt_img_project = :alt, url_project = :url, content_project = :content WHERE id_project = :id');
+    $req->bindValue(':id', $id);
+    $req->bindValue(':alt', $alt);
+    $req->bindValue(':url', $url);
+    $req->bindValue(':content', $description);
+
+    $req->execute();
+
+    if(!empty($techno)) {
+        $idNewTechno = [addTechno($techno)];
+        addProjectLabelType($id, $idNewTechno);
+    }
+}
+
+function deleteProject($id) {
+    $db = dbConnect();
+
+    $req = $db->prepare('DELETE FROM admin.project WHERE id_project = :id ');
     $req->bindValue(':id', $id);
 
     $req->execute();

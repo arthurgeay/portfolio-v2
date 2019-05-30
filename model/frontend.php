@@ -72,11 +72,13 @@ function getProjects() {
         unset($result[$data['id_project']]['title_label_type']);
     }
 
-    for($i = 1; $i <= count($result); $i++) {
-        $result[$i]['title_label_type'] = $technos[$i];
+    $data = [];
+    foreach($result as $row) {
+        $data[$row['id_project']] = $row;
+        $data[$row['id_project']]['title_label_type'] = $technos[$row['id_project']];
     }
 
-    return $result;
+    return $data;
 }
 
 function getContentContact() {

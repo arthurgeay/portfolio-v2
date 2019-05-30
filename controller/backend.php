@@ -217,5 +217,83 @@ function skillsAdmin() {
 }
 
 function projectAdmin() {
+
+    if(!isset($_SESSION['email']) || !isset($_SESSION['password_hash'])) {
+        header('Location: index.php?page=connect');
+        exit();
+    }
+
+    /* Ajouter un projet */
+
+    if(isset($_POST['add-project'])) {
+
+        if(empty($_POST['alt']) || empty($_POST['description']) || empty($_POST['technos']) || empty($_POST['url'])) {
+            $_SESSION['error'] = 'Vous devez remplir tous les champs';
+        }
+
+        if(isset($_FILES['screen']) && $_FILES['screen']['error'] == 0) {
+            upload($_FILES['screen'], 200000, ['png', 'jpg'], 'public/img/project/'.$_FILES['screen']['name']);
+        }
+
+        if(!isset($_SESSION['error'])) {
+            $pathScreenImg = (isset($_FILES['screen'])) ? 'img/project/'.$_FILES['screen']['name'] : NULL;
+            addProject($pathScreenImg, $_POST['alt'], $_POST['description'], $_POST['technos'], $_POST['url'], $_POST['add-techno']);
+            $_SESSION['success'] = 'Votre projet a bien été ajouté';
+        }
+
+        header('Location: index.php?page=project&action=add');
+        exit();
+    }
+
+    /* Editer un projet */
+
+    if(isset($_GET['action']) && $_GET['action'] == 'edit' && isset($_GET['id'])) {
+
+        $id = (int)$_GET['id'];
+        $project = getProjectById($id);
+
+        if(!$project) {
+            header('Location: index.php?page=project');
+            exit();
+        }
+
+        if(isset($_POST['edit-project'])) {
+            if(empty($_POST['description']) || empty($_POST['alt'])){
+                $_SESSION['error'] = 'Vous devez remplir tous les champs';
+            }
+
+            if(isset($_FILES['screen']) && $_FILES['screen']['error'] == 0) {
+                upload($_FILES['screen'], 200000, ['png', 'jpg'], 'public/'.$project['img_path_project']);
+            }
+
+            if(!isset($_SESSION['error'])) {
+                editProject($id, $_POST['alt'], $_POST['description'], $_POST['add-techno'], $_POST['url']);
+                $_SESSION['success'] = 'Votre projet a bien été modifié';
+            }
+
+            header('Location: index.php?page=project&action=edit&id='.$project['id_project']);
+            exit();
+        }
+    }
+
+    /* Supprimer un projet */
+
+    if(isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id'])) {
+        $id = (int)$_GET['id'];
+        $project = getProjectById($id);
+        if (!$project) {
+            header('Location: index.php?page=project');
+            exit();
+        }
+
+        deleteProject($id);
+        unlink('public/' . $project['img_path_project']);
+        $_SESSION['success'] = 'Votre projet a bien été supprimé';
+        header('Location: index.php?page=project');
+        exit();
+    }
+
+    $projects = getProjects();
+    $technos = getTechnos();
     require_once 'view/backend/adminProjectView.php';
 }

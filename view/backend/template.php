@@ -30,7 +30,7 @@
                 <a href="index.php?page=skills">Compétences</a>
             </li>
             <li class="<?= (isset($_GET['page']) && $_GET['page'] == 'project') ? 'active' : '' ?>">
-                <a href="index.php?page=project.php">Projets</a>
+                <a href="index.php?page=project">Projets</a>
             </li>
             <li>
                 <a href="admin-contact.php">Contact</a>

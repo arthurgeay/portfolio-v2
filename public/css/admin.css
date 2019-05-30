@@ -274,6 +274,10 @@ select {
 	margin-top: 15px;
 }
 
+div + input {
+	margin-top: 15px;
+}
+
 
 
 
