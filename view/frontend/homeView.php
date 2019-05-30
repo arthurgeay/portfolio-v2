@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="animation-left">
-			<img src="public/<?= $headerInfo['img_path_header_info']; ?>" />
+			<img src="public/<?= $headerInfo['img_path_header_info']; ?>" alt="<?= $headerInfo['alt_img_header_info']; ?>" />
 			<nav>
 				<ul>
 					<li>

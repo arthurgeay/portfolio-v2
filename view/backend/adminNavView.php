@@ -11,8 +11,14 @@
 unset($_SESSION['success']);
 endif; ?>
 
-<form method="post">
-    <input type="file" id="file"/>
+<?php if(isset($_SESSION['error'])): ?>
+    <p class="error"><?= $_SESSION['error']; ?></p>
+    <?php
+    unset($_SESSION['error']);
+endif; ?>
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" id="file" name="image"/>
     <label for="file" id="label-file">Choisissez une image...</label>
     <input type="text" placeholder="Texte alternatif pour l'image" name="alt" value="<?= $info['alt_img_header_info']; ?>"/>
     <input type="text" placeholder="URL de votre compte Twitter" name="twitter" value="<?= $info['url_twitter_header_info']; ?>"/>
