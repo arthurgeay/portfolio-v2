@@ -64,3 +64,158 @@ function aboutAdmin() {
 
     require_once 'view/backend/adminAboutView.php';
 }
+
+function experienceAdmin() {
+
+    if(!isset($_SESSION['email']) || !isset($_SESSION['password_hash'])) {
+        header('Location: index.php?page=connect');
+        exit();
+    }
+
+    /* Ajouter une expérience */
+    if(isset($_POST['add-experience'])) {
+        if(empty($_POST['type_experience']) || empty($_POST['title_experience']) || empty($_POST['place_experience']) || empty($_POST['date_start']) || empty($_POST['description'])) {
+            $_SESSION['error'] = 'Vous devez remplir tous les champs';
+        }
+
+        if(!isset($_SESSION['error'])) {
+            $type = ($_POST['type_experience'] == 'pro') ? 1 : 2;
+            $dateEnd = (!empty($_POST['date_end'])) ? $_POST['date_end'] : NULL;
+            addExperience($type, $_POST['title_experience'], $_POST['place_experience'], $_POST['date_start'], $dateEnd, $_POST['description']);
+            $_SESSION['success'] = 'Votre expérience a bien été ajoutée';
+        }
+
+        header('Location: index.php?page=experience&action=add');
+        exit();
+    }
+
+    /* Editer une expérience */
+    if(isset($_GET['action']) && $_GET['action'] == 'edit' && isset($_GET['id'])) {
+        $id = (int) $_GET['id'];
+        $experience = getExperienceById($id);
+        if(!$experience) {
+            header('Location: index.php?page=experience');
+            exit();
+        }
+
+        if(isset($_POST['edit-experience'])) {
+            if (empty($_POST['type_experience']) || empty($_POST['title_experience']) || empty($_POST['place_experience']) || empty($_POST['date_start']) || empty($_POST['description'])) {
+                $_SESSION['error'] = 'Vous devez remplir tous les champs';
+            }
+
+            if(!isset($_SESSION['error'])) {
+                $type = ($_POST['type_experience'] == 'pro') ? 1 : 2;
+                $dateEnd = (!empty($_POST['date_end'])) ? $_POST['date_end'] : NULL;
+                editExperience($id, $type, $_POST['title_experience'], $_POST['place_experience'], $_POST['date_start'], $dateEnd, $_POST['description']);
+                $_SESSION['success'] = 'Votre expérience a bien été modifiée';
+            }
+
+            header('Location: index.php?page=experience&action=edit&id='.$id);
+            exit();
+        }
+
+    }
+
+    /* Supprimer une expérience */
+    if(isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id'])) {
+        $id = (int) $_GET['id'];
+        $experience = getExperienceById($id);
+        if(!$experience) {
+            header('Location: index.php?page=experience');
+            exit();
+        }
+
+        deleteExperience($id);
+        $_SESSION['success'] = "L'expérience a bien été supprimé";
+        header('Location: index.php?page=experience');
+        exit();
+    }
+
+    $professionnals = getProfessionnalExperience();
+    $formations = getEducationExperience();
+
+    require_once 'view/backend/adminExperienceView.php';
+}
+
+
+function skillsAdmin() {
+
+    if(!isset($_SESSION['email']) || !isset($_SESSION['password_hash'])) {
+        header('Location: index.php?page=connect');
+        exit();
+    }
+
+    /* Ajouter une compétence */
+
+    if(isset($_POST['add-skills'])) {
+        if(empty($_FILES['img']) || empty($_POST['alt'])) {
+            $_SESSION['error'] = 'Vous devez remplir tous les champs';
+        }
+
+        if(isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
+            upload($_FILES['img'], 100000, ['png'], 'public/img/skills/'.$_FILES['img']['name']);
+        }
+
+        if(!isset($_SESSION['error'])) {
+            addSkills('img/skills/'.$_FILES['img']['name'], $_POST['alt']);
+            $_SESSION['success'] = 'Votre nouvelle compétence a bien été ajouté';
+        }
+
+        header('Location: index.php?page=skills&action=add');
+        exit();
+    }
+
+    /* Editer une compétence */
+
+    if(isset($_GET['action']) && $_GET['action'] == 'edit' && isset($_GET['id'])) {
+        $id = (int)$_GET['id'];
+        $skill = getSkillById($id);
+
+        if(!$skill) {
+            header('Location: index.php?page=skills');
+            exit();
+        }
+
+        if(isset($_POST['edit-skills'])) {
+            if(empty($_POST['alt'])) {
+                $_SESSION['error'] = 'Vous devez remplir tous les champs';
+            }
+
+            if(isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
+                upload($_FILES['img'], 100000, ['png'], 'public/'.$skill['img_skills']);
+            }
+
+            if(!isset($_SESSION['error'])) {
+                editSkill($skill['id_skills'], $_POST['alt']);
+                $_SESSION['success'] = 'Votre compétence a bien été modifié';
+            }
+
+            header('Location: index.php?page=skills&action=edit&id='.$skill['id_skills']);
+            exit();
+        }
+    }
+
+    /* Supprimer une compétence */
+
+    if(isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id'])) {
+        $id = (int) $_GET['id'];
+        $skill = getSkillById($id);
+        if(!$skill) {
+            header('Location: index.php?page=skills');
+            exit();
+        }
+
+        deleteSkill($id);
+        unlink('public/'.$skill['img_skills']);
+        $_SESSION['success'] = 'Votre compétence a bien été supprimé';
+        header('Location: index.php?page=skills');
+        exit();
+    }
+
+    $skills = getSkills();
+    require_once 'view/backend/adminSkillsView.php';
+}
+
+function projectAdmin() {
+    require_once 'view/backend/adminProjectView.php';
+}

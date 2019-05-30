@@ -24,13 +24,13 @@
                         <a href="adminAboutView.php">A propos</a>
                     </li>
                     <li>
-                        <a href="admin-experience.php">Parcours</a>
+                        <a href="adminExperienceView.php">Parcours</a>
                     </li>
                     <li>
-                        <a href="admin-skills.php">Compétences</a>
+                        <a href="adminSkillsView.php">Compétences</a>
                     </li>
                     <li>
-                        <a href="admin-project.php">Projets</a>
+                        <a href="adminProjectView.php">Projets</a>
                     </li>
                     <li>
                         <a href="admin-contact.php">Contact</a>

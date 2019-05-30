@@ -23,14 +23,14 @@
             <li class="<?= (isset($_GET['page']) && $_GET['page'] == 'about') ? 'active' : '' ?>">
                 <a href="index.php?page=about">A propos</a>
             </li>
-            <li>
-                <a href="admin-experience.php">Parcours</a>
+            <li class="<?= (isset($_GET['page']) && $_GET['page'] == 'experience') ? 'active' : '' ?>">
+                <a href="index.php?page=experience">Parcours</a>
             </li>
-            <li>
-                <a href="admin-skills.php">Compétences</a>
+            <li class="<?= (isset($_GET['page']) && $_GET['page'] == 'skills') ? 'active' : '' ?>">
+                <a href="index.php?page=skills">Compétences</a>
             </li>
-            <li>
-                <a href="admin-project.php">Projets</a>
+            <li class="<?= (isset($_GET['page']) && $_GET['page'] == 'project') ? 'active' : '' ?>">
+                <a href="index.php?page=project.php">Projets</a>
             </li>
             <li>
                 <a href="admin-contact.php">Contact</a>

@@ -22,6 +22,15 @@ switch($page) {
     case 'about':
         aboutAdmin();
         break;
+    case 'experience':
+        experienceAdmin();
+        break;
+    case 'skills':
+        skillsAdmin();
+        break;
+    case 'project':
+        projectAdmin();
+        break;
 
 
 }

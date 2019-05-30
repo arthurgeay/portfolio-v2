@@ -22,7 +22,7 @@ function getAbout($default = false) {
 
 function getProfessionnalExperience() {
     $db = dbConnect();
-    $req = $db->query('SELECT id_experience, title_experience, place_experience, to_char(date_start_experience, \'MM/YYYY\') AS date_start, to_char(date_end_experience, \'MM/YYYY\') AS date_end, content_experience, id_type_experience FROM admin.experience WHERE id_type_experience = 1 ORDER BY id_experience DESC');
+    $req = $db->query('SELECT id_experience, title_experience, place_experience, to_char(date_start_experience, \'MM/YYYY\') AS date_start, to_char(date_end_experience, \'MM/YYYY\') AS date_end, content_experience, id_type_experience FROM admin.experience WHERE id_type_experience = 1 ORDER BY date_start_experience DESC');
 
     $result = [];
 
@@ -35,7 +35,7 @@ function getProfessionnalExperience() {
 
 function getEducationExperience() {
     $db = dbConnect();
-    $req = $db->query('SELECT id_experience, title_experience, place_experience, to_char(date_start_experience, \'MM/YYYY\') AS date_start, to_char(date_end_experience, \'MM/YYYY\') AS date_end, content_experience, id_type_experience FROM admin.experience WHERE id_type_experience = 2 ORDER BY id_experience DESC');
+    $req = $db->query('SELECT id_experience, title_experience, place_experience, to_char(date_start_experience, \'MM/YYYY\') AS date_start, to_char(date_end_experience, \'MM/YYYY\') AS date_end, content_experience, id_type_experience FROM admin.experience WHERE id_type_experience = 2 ORDER BY date_start_experience DESC');
 
     $result = [];
 
