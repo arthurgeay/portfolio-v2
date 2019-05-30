@@ -19,6 +19,9 @@ switch($page) {
     case 'menu':
         menuAdmin();
         break;
+    case 'about':
+        aboutAdmin();
+        break;
 
 
 }

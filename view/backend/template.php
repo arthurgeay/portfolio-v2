@@ -17,11 +17,11 @@
         </div>
 
         <ul class="list-unstyled">
-            <li class="active">
+            <li class="<?= (isset($_GET['page']) && $_GET['page'] == 'menu') ? 'active' : '' ?>">
                 <a href="index.php?page=menu">Menu de navigation</a>
             </li>
-            <li>
-                <a href="admin-about.php">A propos</a>
+            <li class="<?= (isset($_GET['page']) && $_GET['page'] == 'about') ? 'active' : '' ?>">
+                <a href="index.php?page=about">A propos</a>
             </li>
             <li>
                 <a href="admin-experience.php">Parcours</a>

@@ -23,7 +23,7 @@
                         <a href="adminNavView.php">Menu de navigation</a>
                     </li>
                     <li>
-                        <a href="admin-about.php">A propos</a>
+                        <a href="adminAboutView.php">A propos</a>
                     </li>
                     <li>
                         <a href="admin-experience.php">Parcours</a>

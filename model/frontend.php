@@ -8,9 +8,15 @@ function getHeaderInfo() {
     return $req->fetch(PDO::FETCH_ASSOC);
 }
 
-function getAbout() {
+function getAbout($default = false) {
     $db = dbConnect();
-    $req = $db->query('SELECT fullname_about, EXTRACT(YEAR FROM AGE(birthday_about)) as age, city_about, email_about, phone_about, hobbies_about, current_job_about, description_about, cv_path_about FROM admin.about');
+
+    if(!$default) {
+        $req = $db->query('SELECT fullname_about, EXTRACT(YEAR FROM AGE(birthday_about)) as age, city_about, email_about, phone_about, hobbies_about, current_job_about, description_about, cv_path_about FROM admin.about');
+    } else {
+        $req = $db->query('SELECT * FROM admin.about');
+    }
+
     return $req->fetch(PDO::FETCH_ASSOC);
 }
 
