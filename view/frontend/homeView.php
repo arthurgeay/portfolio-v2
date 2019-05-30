@@ -178,10 +178,17 @@
                 endif;
                 ?>
 
+                <?php if(isset($_SESSION['success'])): ?>
+                    <p class="success"><?= $_SESSION['success']; ?></p>
+                <?php
+                unset($_SESSION['success']);
+                endif;
+                ?>
+
 				<form method="post">
-					<input type="text" name="firstname" placeholder="Prénom"   />
-					<input type="email" name="email" placeholder="Adresse e-mail"  />
-					<textarea name="message" rows="10" placeholder="Message" ></textarea>
+					<input type="text" name="firstname" placeholder="Prénom" required/>
+					<input type="email" name="email" placeholder="Adresse e-mail" required/>
+					<textarea name="message" rows="10" placeholder="Message" required></textarea>
 					<input type="submit" name="contact-form"/>
 				</form>
 			</section>

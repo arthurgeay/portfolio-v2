@@ -20,7 +20,7 @@
 
                 <ul class="list-unstyled">
                     <li class="active">
-                        <a href="admin-nav.php">Menu de navigation</a>
+                        <a href="adminNavView.php">Menu de navigation</a>
                     </li>
                     <li>
                         <a href="admin-about.php">A propos</a>

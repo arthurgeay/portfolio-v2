@@ -151,9 +151,17 @@ input[type="file"]:hover + label {
 	width: 150px;
 }
 
+/* Alert success & error */
 .error {
 	padding: 20px;
 	background-color: #f44336;
+	color: white;
+	margin-bottom: 15px;
+}
+
+.success {
+	padding: 20px;
+	background-color: rgb(99, 190, 113);
 	color: white;
 	margin-bottom: 15px;
 }

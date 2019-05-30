@@ -1,14 +1,6 @@
 <?php
 
-function dbConnect() {
-    try{
-        $db =  new PDO('pgsql:host=localhost;dbname=portfolio;user=postgres;password=root');
-    } catch (PDOException $e) {
-        die('Erreur : '.$e->getMessage());
-    }
-
-    return $db;
-}
+require_once 'db.php';
 
 function getHeaderInfo() {
     $db = dbConnect();
@@ -63,7 +55,7 @@ function getSkills() {
 
 function getProjects() {
     $db = dbConnect();
-    $req = $db->query('SELECT p.id_project, p.content_project, p.url_project, p.img_path_project, p.alt_img_project, lt.title_label_type FROM admin.project AS p INNER JOIN admin.project_label_type AS l ON l.id_project = p.id_project LEFT JOIN admin.label_type AS lt ON lt.id_label_type = l.id_label_type');
+    $req = $db->query('SELECT p.id_project, p.content_project, p.url_project, p.img_path_project, p.alt_img_project, lt.title_label_type FROM admin.project AS p INNER JOIN admin.project_label_type AS l ON l.id_project = p.id_project INNER JOIN admin.label_type AS lt ON lt.id_label_type = l.id_label_type');
 
     $result = [];
     $technos = [];
@@ -88,3 +80,35 @@ function getContentContact() {
     return $req->fetch(PDO::FETCH_ASSOC);
 
 }
+
+function addMessage($fullname, $email, $content) {
+    $db = dbConnect();
+    $req = $db->prepare('INSERT INTO admin.message(fullname_message, email_message, content_message, datetime_message) VALUES(:fullname, :email, :content, NOW())');
+    $req->bindValue(':fullname', $fullname);
+    $req->bindValue(':email', $email);
+    $req->bindValue(':content', $content);
+
+    $req->execute();
+}
+
+function registerUser($user, $password) {
+    $db = dbConnect();
+
+    $password = password_hash(htmlentities($password), PASSWORD_DEFAULT);
+
+    $req = $db->prepare('INSERT INTO admin.user(username_user, password_user) VALUES(:username, :password)');
+    $req->bindValue(':username', htmlentities($user));
+    $req->bindValue(':password', $password);
+
+    $req->execute();
+}
+
+function emailExist($email) {
+    $db = dbConnect();
+    $req = $db->prepare('SELECT * FROM admin.user WHERE username_user = :email');
+    $req->bindValue(':email', $email);
+    $req->execute();
+
+    return $req->fetch(PDO::FETCH_ASSOC);
+}
+
