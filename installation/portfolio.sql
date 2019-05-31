@@ -464,7 +464,7 @@ ALTER TABLE ONLY admin."user" ALTER COLUMN id_user SET DEFAULT nextval('admin.us
 --
 
 COPY admin.about (id_about, fullname_about, birthday_about, city_about, email_about, phone_about, hobbies_about, current_job_about, description_about, cv_path_about) FROM stdin;
-1	Arthur Geay	1997-09-01	Saint Sébastien sur Loire	arthurgeay.contact@gmail.com	06XXXXXXXX	Jeux vidéo, Cinéma & Musique	Etudiant & Développeur web	Passionné d'informatique et de nouvelles technologies, mon projet professionnel s'oriente vers les métiers du web et plus particulièrement celui de développeur web Backend.	download/CV.pdf
+1	Arthur Geay	1997-01-01	Saint S&eacute;bastien sur Loire	arthurgeay.contact@gmail.com	06XXXXXXXX	Jeux vid&eacute;o, Cin&eacute;ma &amp; Musique test	Etudiant &amp; D&eacute;veloppeur web	<p>Passionn&eacute; d'informatique et de nouvelles technologies, mon projet professionnel s'oriente vers les m&eacute;tiers du web et plus particuli&egrave;rement celui de d&eacute;veloppeur web Backend.</p>	download/CV.pdf
 \.
 
 
@@ -474,7 +474,7 @@ COPY admin.about (id_about, fullname_about, birthday_about, city_about, email_ab
 
 COPY admin.contact (id_contact, content_contact) FROM stdin;
 1	test
-2	test
+2	
 \.
 
 
@@ -485,11 +485,11 @@ COPY admin.contact (id_contact, content_contact) FROM stdin;
 COPY admin.experience (id_experience, title_experience, place_experience, date_start_experience, date_end_experience, content_experience, id_type_experience) FROM stdin;
 1	Réparateur de téléphone	Online Repair	2016-09-01	2017-04-01	<p><strong>Les missions :</strong></p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>Diagnostics et réparations de téléphone</li>\n\t\t\t\t\t\t</ul>	1
 2	Développeur web PHP/Symfony	Freelance	2018-05-01	\N	<p>Création d'une micro entreprise de développement web.</p>\n\n\t\t\t\t\t\t<p><strong>Les missions :</strong></p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>Car Manager Mai 2018 : <br /> Développement d'une application web destinée à gérer la flotte de véhicule des sociétés Duotech, Satelix et ARF.</li>\n\t\t\t\t\t\t\t<li><a href="https://valerie-dauphin.fr">Valérie-dauphin.fr</a> - Juin 2018 : <br />\n\t\t\t\t\t\t\t\tDéveloppement d'un portfolio pour l'auteure de littérature jeunesse Valérie Dauphin.</li>\n\t\t\t\t\t\t</ul>	1
-3	Développeur web	ENVOLiiS	2018-07-01	2018-08-31	<p><strong>Les missions :</strong></p><ul>\n\t\t\t\t\t\t\t<li>Développement d'un portail Power BI</li>\n\t\t\t\t\t\t\t<li>Développement d'un outil d'import de contrat</li>\n\t\t\t\t\t\t</ul>	1
 4	Baccalauréat ES	\N	2015-01-01	\N	\N	2
 5	L1 Arts du spectacle	\N	2015-01-01	2016-01-01	\N	2
 6	Chef de projet multimédia	OpenClassrooms / IESA Multimédia	2017-01-01	2018-01-01	<p>Titre professionnel de Chef de projet multimédia enregistré au Répertoire National de la Certification Professionnelle (RNCP) au niveau II.)</p>	2
 7	Bachelor Informatique et Systèmes d'Information	Ynov Informatique	2018-09-01	\N	<p>La formation d’Ynov Informatique prépare au titre d’Expert Informatique et Systèmes d’Information, enregistré au Répertoire National de la Certification Professionnelle (RNCP) au niveau I.)</p>	2
+3	D&eacute;veloppeur web	ENVOLiiS	2018-07-01	2018-08-31	<p><strong>Les missions :</strong></p>\r\n<ul>\r\n<li>D&eacute;veloppement d'un portail Power BI</li>\r\n<li>D&eacute;veloppement d'un outil d'import de contrat</li>\r\n</ul>	1
 \.
 
 
@@ -585,6 +585,9 @@ COPY admin.skills (id_skills, img_skills, alt_img_skills) FROM stdin;
 --
 
 COPY admin."user" (id_user, username_user, password_user) FROM stdin;
+1	arthurgeay.contact@gmail.com	$2y$10$s0VuEtKjHccKBo0u/woWduJQGtSDpNIIMYSPTS0kSzNywXbiir.1u
+4	eeflfejeflj@flje.fr	$2y$10$hrSpaxAt6PP2HTYedCNOpujlGpND9NzlP0z8wA2YHvCeK3WhMf9CK
+5	arthur.geay@ynov.com	$2y$10$GBXPwVe5xCjED1GacZFAxuglG9dn9XXt2Pwof1sbSA5rx364Gh3tG
 \.
 
 
@@ -606,7 +609,7 @@ SELECT pg_catalog.setval('admin.contact_id_contact_seq', 2, true);
 -- Name: experience_id_experience_seq; Type: SEQUENCE SET; Schema: admin; Owner: -
 --
 
-SELECT pg_catalog.setval('admin.experience_id_experience_seq', 7, true);
+SELECT pg_catalog.setval('admin.experience_id_experience_seq', 12, true);
 
 
 --
@@ -627,42 +630,42 @@ SELECT pg_catalog.setval('admin.header_info_id_header_info_seq', 2, true);
 -- Name: label_type_id_label_type_seq; Type: SEQUENCE SET; Schema: admin; Owner: -
 --
 
-SELECT pg_catalog.setval('admin.label_type_id_label_type_seq', 5, true);
+SELECT pg_catalog.setval('admin.label_type_id_label_type_seq', 9, true);
 
 
 --
 -- Name: message_id_message_seq; Type: SEQUENCE SET; Schema: admin; Owner: -
 --
 
-SELECT pg_catalog.setval('admin.message_id_message_seq', 1, false);
+SELECT pg_catalog.setval('admin.message_id_message_seq', 4, true);
 
 
 --
 -- Name: project_id_project_seq; Type: SEQUENCE SET; Schema: admin; Owner: -
 --
 
-SELECT pg_catalog.setval('admin.project_id_project_seq', 6, true);
+SELECT pg_catalog.setval('admin.project_id_project_seq', 14, true);
 
 
 --
 -- Name: project_label_type_id_project_label_type_seq; Type: SEQUENCE SET; Schema: admin; Owner: -
 --
 
-SELECT pg_catalog.setval('admin.project_label_type_id_project_label_type_seq', 10, true);
+SELECT pg_catalog.setval('admin.project_label_type_id_project_label_type_seq', 24, true);
 
 
 --
 -- Name: skills_id_skills_seq; Type: SEQUENCE SET; Schema: admin; Owner: -
 --
 
-SELECT pg_catalog.setval('admin.skills_id_skills_seq', 7, true);
+SELECT pg_catalog.setval('admin.skills_id_skills_seq', 11, true);
 
 
 --
 -- Name: user_id_user_seq; Type: SEQUENCE SET; Schema: admin; Owner: -
 --
 
-SELECT pg_catalog.setval('admin.user_id_user_seq', 1, false);
+SELECT pg_catalog.setval('admin.user_id_user_seq', 5, true);
 
 
 --
@@ -774,7 +777,7 @@ ALTER TABLE ONLY admin.project_label_type
 --
 
 ALTER TABLE ONLY admin.project_label_type
-    ADD CONSTRAINT project_label_type_id_project_fkey FOREIGN KEY (id_project) REFERENCES admin.project(id_project);
+    ADD CONSTRAINT project_label_type_id_project_fkey FOREIGN KEY (id_project) REFERENCES admin.project(id_project) ON DELETE CASCADE;
 
 
 --
