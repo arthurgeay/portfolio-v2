@@ -297,3 +297,38 @@ function projectAdmin() {
     $technos = getTechnos();
     require_once 'view/backend/adminProjectView.php';
 }
+
+function contactAdmin() {
+
+    $content = getContentContact();
+
+    if(isset($_POST['content-submit'])) {
+        editContentContact($_POST['content']);
+        $_SESSION['success'] = 'Votre message a bien été modifié';
+        header('Location: index.php?page=contact');
+        exit();
+    }
+
+    require_once 'view/backend/adminContactView.php';
+}
+
+function messageAdmin() {
+
+    if(isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id'])) {
+        $id = (int)$_GET['id'];
+        $message = getMessageById($id);
+        if (!$message) {
+            header('Location: index.php?page=message');
+            exit();
+        }
+
+        deleteMessage($id);
+        $_SESSION['success'] = 'Le message a bien été supprimé';
+        header('Location: index.php?page=message');
+        exit();
+    }
+
+    $messages = getMessages();
+
+    require_once 'view/backend/adminMessageView.php';
+}

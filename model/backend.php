@@ -187,8 +187,8 @@ function editProject($id, $alt, $description, $techno, $url) {
 
     $req = $db->prepare('UPDATE admin.project SET alt_img_project = :alt, url_project = :url, content_project = :content WHERE id_project = :id');
     $req->bindValue(':id', $id);
-    $req->bindValue(':alt', $alt);
-    $req->bindValue(':url', $url);
+    $req->bindValue(':alt', htmlentities($alt));
+    $req->bindValue(':url', htmlentities($url));
     $req->bindValue(':content', $description);
 
     $req->execute();
@@ -203,6 +203,49 @@ function deleteProject($id) {
     $db = dbConnect();
 
     $req = $db->prepare('DELETE FROM admin.project WHERE id_project = :id ');
+    $req->bindValue(':id', $id);
+
+    $req->execute();
+}
+
+function editContentContact($content) {
+    $db = dbConnect();
+
+    $req = $db->prepare('UPDATE admin.contact SET content_contact = :content WHERE id_contact = 2 ');
+    $req->bindValue(':content', $content);
+
+    $req->execute();
+}
+
+function getMessages() {
+
+    $db = dbConnect();
+
+    $req = $db->query('SELECT id_message, fullname_message, email_message, content_message, to_char(datetime_message, \'DD/MM/YYYY à HH24:MI:SS\') AS date_message FROM admin.message ORDER BY id_message DESC LIMIT 5');
+    $result = [];
+
+    while($data = $req->fetch(PDO::FETCH_ASSOC)) {
+        $result[] = $data;
+    }
+
+    return $result;
+}
+
+function getMessageById($id) {
+    $db = dbConnect();
+
+    $req = $db->prepare('SELECT * FROM admin.message WHERE id_message = :id');
+    $req->bindValue(':id', $id);
+
+    $req->execute();
+
+    return $req->fetch(PDO::FETCH_ASSOC);
+}
+
+function deleteMessage($id) {
+    $db = dbConnect();
+
+    $req = $db->prepare('DELETE FROM admin.message WHERE id_message = :id');
     $req->bindValue(':id', $id);
 
     $req->execute();

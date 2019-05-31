@@ -31,6 +31,12 @@ switch($page) {
     case 'project':
         projectAdmin();
         break;
+    case 'contact':
+        contactAdmin();
+        break;
+    case 'message':
+        messageAdmin();
+        break;
 
 
 }

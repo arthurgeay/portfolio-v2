@@ -166,6 +166,13 @@ input[type="file"]:hover + label {
 	margin-bottom: 15px;
 }
 
+.info {
+	padding: 20px;
+	background-color: rgb(55, 166, 243);
+	color: white;
+	margin-bottom: 15px;
+}
+
 
 
 @media screen and (max-width: 980px) {

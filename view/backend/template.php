@@ -32,11 +32,11 @@
             <li class="<?= (isset($_GET['page']) && $_GET['page'] == 'project') ? 'active' : '' ?>">
                 <a href="index.php?page=project">Projets</a>
             </li>
-            <li>
-                <a href="admin-contact.php">Contact</a>
+            <li class="<?= (isset($_GET['page']) && $_GET['page'] == 'contact') ? 'active' : '' ?>">
+                <a href="index.php?page=contact">Contact</a>
             </li>
-            <li>
-                <a href="admin-message.php">Messagerie</a>
+            <li class="<?= (isset($_GET['page']) && $_GET['page'] == 'message') ? 'active' : '' ?>">
+                <a href="index.php?page=message">Messagerie</a>
             </li>
         </ul>
     </nav>
