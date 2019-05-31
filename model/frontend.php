@@ -111,6 +111,14 @@ function registerUser($user, $password) {
     $req->execute();
 }
 
+function getUser() {
+    $db = dbConnect();
+
+    $req = $db->query('SELECT * FROM admin.user');
+    return $req->fetch(PDO::FETCH_ASSOC);
+}
+
+
 function emailExist($email) {
     $db = dbConnect();
     $req = $db->prepare('SELECT * FROM admin.user WHERE username_user = :email');
@@ -119,4 +127,5 @@ function emailExist($email) {
 
     return $req->fetch(PDO::FETCH_ASSOC);
 }
+
 

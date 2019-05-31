@@ -139,8 +139,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Êtes-vous sûr de vouloir supprimer cette expérience ? <?= $formation['id_experience']; ?>
-                            "</p>
+                        <p>Êtes-vous sûr de vouloir supprimer cette expérience ? </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>

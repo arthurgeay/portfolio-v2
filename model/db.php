@@ -3,7 +3,7 @@
 function dbConnect()
 {
     try {
-        $db = new PDO('pgsql:host=localhost;dbname=portfolio', 'postgres', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $db = new PDO('pgsql:host=localhost;dbname=portfolio', 'postgres', 'root');
     } catch (PDOException $e) {
         die('Erreur : ' . $e->getMessage());
     }

@@ -57,9 +57,15 @@ function connect() {
             $_SESSION['error'][] = 'Veuillez saisir une adresse e-mail valide';
         }
 
+        if(getUser()) {
+            $_SESSION['error'][] = 'Vous ne pouvez pas vous inscrire car un compte administrateur existe déjà';
+        }
+
         if (!isset($_SESSION['error'])) {
             registerUser($_POST['email'], $_POST['password']);
             $_SESSION['success'] = 'Votre compte administrateur a bien été créé. Vous pouvez désormais vous connecter.';
+            header('Location: index.php?page=connect');
+            exit();
         }
     }
 
@@ -85,6 +91,7 @@ function connect() {
             $_SESSION['password_hash'] = $emailExist['password_user'];
 
             header('Location: index.php?page=menu');
+            exit();
         }
 
     }
