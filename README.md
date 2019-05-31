@@ -110,12 +110,30 @@ L'architecture choisie est une architecture de type MVC (Model - View - Controll
   
   
 ## Instructions d'installation  
-  
- 1. Cloner le projet `git clone https://github.com/arthurgeay/portfolio-v2.git`  
- 2. Installer un serveur web permettant d'exécuter du PHP. Le plus simple étant d'installer une plateforme LAMP (Apache, MySQL, PHP) sur sa machine : [WAMP](https://www.clubic.com/telecharger-fiche27009-wampserver.html) (windows) | [MAMP](https://www.mamp.info/en/) (Mac) | Linux (LAMP)  
- 3. Installer [PostgreSQL](https://www.pgadmin.org/)  
- 4. Créer une base de données depuis pgAdmin `CREATE DATABASE portfolio`   
-5. Exécuter le script SQL depuis un terminal pour créer les différentes tables nécessaires au bon fonctionnement du projet (`installation/portfolio.sql`) `psql -U votreuser nomdelabase < portfolio.sql`  
+   
+ 1. Installer un serveur web et PHP : `apt install apache2 php postfix`
+ 2. Installer [PostgreSQL](https://www.postgresql.org/download) 
+ 3. Lors de la configuration de postfix, choisir l'option  `Site internet`  puis pour le nom de domaine :  `portfolio`
+4. Modifier le fichier de configuration de postfix :  `sudo nano /etc/postfix/main.cf`et supprimer à la ligne mydestination portfolio, | Modifier la ligne inet-interfaces = all par inet-interfaces = loopback-only
+5.  Redémarrer postfix :  `sudo service postfix restart`
+6.  Vérifier que votre Fournisseur d'Accès à Internet ne bloque pas les envois de mail SMTP. Vous pouvez désactiver le blocage en vous rendant sur la console d'administration de votre box; (généralement l'adresse pour y accéder est 192.168.1.1)
+7. Modifier la configuration du virtual host par défaut :  `sudo nano /etc/apache2/sites-available/000-default.conf`
+8.  Supprimer le /html à la ligne ->  `documentRoot: var/www`  puis enregistrer le fichier
+9. Ajouter avant `</VirtualHost>` : 
+```
+<Directory /var/www/>
+	AllowOverride All
+</Directory>
+```
+12.  Activer le fichier de configuration modifié :  `sudo a2ensite 000-default.conf`  puis redémarrer apache  `sudo service apache2 restart`
+13. Créer une base de données depuis pgAdmin `CREATE DATABASE portfolio`   
+14. Exécuter le script SQL depuis un terminal pour créer les différentes tables nécessaires au bon fonctionnement du projet (`installation/portfolio.sql`) `psql -U votreuser nomdelabase < portfolio.sql`  
+
+Pour que le projet fonctionne, il faut que le mot de passe de l'utilisateur **postgres** soit égale à **root**. Si ce n'est pas le cas, vous avez deux solutions soit : 
+
+ - Modifier le mot de passe de l'utilisateur postgres en allant exécuter la commande `psql` puis `\password postgres` et vous tapez **root** en mot de passe
+ - Si vous connaissez le mot de passe pour l'utilisateur postgres et que vous ne voulez pas changer son mot de passe, vous devrez alors modifier le fichier **db.php** qui se trouve dans le répertoire **model**. 
+
   
   
 **Première connexion à l'administration** :  
