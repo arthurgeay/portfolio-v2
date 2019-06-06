@@ -24,15 +24,17 @@ function home() {
             $to = htmlentities($about['email_about']);
             $firstname = htmlentities($_POST['firstname']);
             $email = htmlentities($_POST['email']);
-            $content = htmlentities($_POST['message']);
+            $content = $_POST['message'];
             $message = "Prénom de l'expéditeur : ".$firstname."\r\n\r\n";
             $message .= 'Message : '.$content;
-            $headers = 'From: '. $email . "\r\n" .
+            $headers = 'Content-Type: text/plain; charset="utf-8"'."\r\n";
+            $headers .= 'Content-Transfer-Encoding: 8bit'."\r\n";
+            $headers .= 'From: '. $email . "\r\n" .
                 'Reply-To: '.$email . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
 
             if(mail($to, 'Formulaire de contact - Portfolio Arthur Geay', $message, $headers)) {
-                addMessage($firstname, $email, $content);
+                addMessage($firstname, $email, htmlentities($content));
                 $_SESSION['success'] = 'Votre email a bien été envoyé. Vous recevrez une réponse dans quelques jours.';
             }
         }
